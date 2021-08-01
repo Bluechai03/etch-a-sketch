@@ -13,6 +13,7 @@ p {
 
 body {
   margin: 0;
+  background: #fff;
 }
 
 main {
@@ -22,16 +23,29 @@ main {
   min-height: 100vh;
 }
 
+.col {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.col + .col {
+  align-items: center;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(autofit, 1fr);
-  width: 500px;
+  width: 90%;
   border: 2px solid chartreuse;
+  min-width: 300px;
 }
 
 .grid__square {
   aspect-ratio: 1/1;
   opacity: 0;
-  transition: opacity 250ms ease-in-out;
+  margin: 0;
+  padding: 0;
+  transition: opacity 150ms ease-in-out, background-color 150ms ease-in-out;
 }
 /*# sourceMappingURL=styles.css.map */

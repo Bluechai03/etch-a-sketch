@@ -5,19 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-a-Sketch</title>
+    <!-- iro.js - Colour picker library -->
     <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+    <!-- dom-to-image - Convert DOM to image -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <main>
       <div class="col">
-        <button>Clear Grid</button>
-        <label for="disable-gradient">Gradient</label>
-        <input type="checkbox" name="disable-gradient" class="checkbox" />
-        <div id="picker"></div>
+        <div class="card">
+          <h2>Instructions</h2>
+          <p>Hover over any square to fill with colour</p>
+          <p>Hold <b>'E'</b> to erase</p>
+
+          <h2>Sketch Customization</h2>
+          <label for="disable-gradient">Gradient</label>
+          <input type="checkbox" name="disable-gradient" class="checkbox" />
+          <div id="picker"></div>
+          <button class="btn" id="btnClearGrid">Clear Sketch</button>
+        </div>
       </div>
-      <div class="grid"></div>
+      <div class="col">
+        <h1>Etch-a-Sketch</h1>
+        <button class="btn" id="btnSave">Save Sketch</button>
+        <div class="grid"></div>
+      </div>
     </main>
-    <script src="script.js" type="module"></script>
+    <script src="script.js"></script>
   </body>
 </html>

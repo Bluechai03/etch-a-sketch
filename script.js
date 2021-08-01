@@ -55,14 +55,18 @@ function resetGrid() {
   fillColor = 'rgb(0, 0, 0)';
 }
 
-const btnClearGrid = document.querySelector('button');
+const btnClearGrid = document.querySelector('#btnClearGrid');
 btnClearGrid.addEventListener('click', () => {
   gridContainer.childNodes.forEach((child) => {
     child.style.backgroundColor = '#fff';
     child.style.opacity = 0;
   });
-  gridSize = prompt('Enter new grid size pls:');
+  gridSize = prompt('Enter new sketch grid size pls:');
 
   resetGrid();
   createGrid();
 });
+
+// Use dom-to-image and file-saver libraries to save grid state as png
+const btnSave = document.querySelector('#btnSave');
+btnSave.addEventListener('click', () => domtoimage.toBlob(document.querySelector('.grid')).then((blob) => window.saveAs(blob, 'sketch.png'))); // eslint-disable-line no-undef
