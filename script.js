@@ -15,11 +15,14 @@ createGrid();
 const isGradient = document.querySelector('.checkbox');
 
 let fillColor = 'rgb(0, 0, 0)';
+sessionStorage.fillColor = fillColor;
 const colorPicker = new window.iro.ColorPicker('#picker', { width: 150 });
 
 colorPicker.on('color:change', () => {
   // log the current color as a HEX string
   fillColor = colorPicker.color.rgbString;
+  // Store current rgb values to be used after erase mode
+  sessionStorage.fillColor = fillColor;
 });
 
 gridContainer.addEventListener('mouseover', (e) => {
@@ -37,9 +40,19 @@ gridContainer.addEventListener('mouseover', (e) => {
   else e.target.style.opacity = '1';
 });
 
+// Erase functionality
+document.addEventListener('keydown', (e) => {
+  if (e.code === 'KeyE') fillColor = 'rgba(255,255,255, 0)';
+});
+
+document.addEventListener('keyup', (e) => {
+  if (e.code === 'KeyE') fillColor = sessionStorage.fillColor;
+});
+
 function resetGrid() {
   // gridContainer.childNodes.forEach((child) => gridContainer.removeChild(child));
   gridContainer.textContent = '';
+  fillColor = 'rgb(0, 0, 0)';
 }
 
 const btnClearGrid = document.querySelector('button');
