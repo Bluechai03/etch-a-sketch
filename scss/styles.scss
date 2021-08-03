@@ -39,22 +39,28 @@ span {
   color: var(--clr-cream);
 }
 
-.btn {
+label {
+  font-weight: 600;
+}
+
+%btn {
   display: inline-block;
   padding: 0.5rem 1rem;
-  border: none;
   border-radius: 0.375em;
   border: 4px solid var(--clr-accent, #000);
-  background: none;
-  color: var(--clr-accent, #000);
   font-size: 1rem;
   font-weight: 600;
+  background: none;
   transition: background-color 150ms ease-in-out;
+}
 
+.btn {
+  @extend %btn;
+  color: var(--clr-accent, #000);
   &:hover,
   &:focus {
     background: var(--clr-accent);
-    color: #000;
+    color: var(--clr-text, #fff);
   }
 
   &--primary {
@@ -62,22 +68,36 @@ span {
   }
   &--green {
     --clr-accent: var(--clr-green);
+    --clr-text: #000;
   }
   &--pink {
     --clr-accent: var(--clr-pink);
   }
 }
 
+#btnSave,
+#btnSetGridSize {
+  align-self: flex-end;
+}
+
+#btnSave {
+  transition: transform 150ms ease-in-out;
+  &:hover {
+    transform: translateY(5px);
+  }
+}
+
 .card {
   display: grid;
   // grid-template-columns: 1fr 2fr 1fr;
+  gap: 1em;
   place-items: center;
   min-height: 100vh;
   max-width: 90%;
-  padding: 0 2em;
+  padding: 1em;
   border: 5px solid #000;
   border-radius: 2em;
-  margin: 2em auto;
+  margin: 1em auto;
   background: var(--clr-purple);
 }
 
@@ -92,6 +112,11 @@ label {
   gap: 0.5em;
   &--fill-modes {
     flex-direction: column;
+  }
+  &--switch {
+    flex-flow: row wrap;
+    justify-content: center;
+    // justify-content: space-around;
   }
 }
 
@@ -128,98 +153,121 @@ label {
   &__content {
     display: flex;
     flex-flow: column wrap;
+    &__label {
+      margin-top: 0.5rem;
+    }
   }
 }
 
 .input {
   &--range {
+    all: unset;
+    margin-top: 0.5em;
+    display: block;
     width: 100%;
+    &::-webkit-slider-thumb,
+    &::-moz-range-thumb {
+      border: 2px solid #000000;
+      height: 36px;
+      width: 16px;
+      border-radius: 0.25em;
+      background: var(--clr-cream);
+      cursor: pointer;
+    }
+    &::-webkit-slider-runnable-track,
+    &::-moz-range-track {
+      width: 100%;
+      height: 1rem;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 0.25rem;
+    }
   }
-}
+  // Switch toggle buttons
+  &--switch {
+    background: rgba(0, 0, 0, 0.35);
+    border: 4px solid var(--clr-brown);
+    border-radius: 0.375em;
+    overflow: hidden;
+    width: 15em;
+    text-align: center;
+    color: var(--clr-cream);
+    position: relative;
+    padding-right: 118px;
+    position: relative;
+    font-weight: 600;
 
-#btnSave {
-  align-self: flex-end;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-.input--switch {
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 0.375em;
-  overflow: hidden;
-  width: 15em;
-  text-align: center;
-  color: var(--clr-cream);
-  position: relative;
-  padding-right: 120px;
-  position: relative;
-  font-weight: 600;
-
-  &--fill {
-    --text-content: 'Click';
-  }
-
-  &--gradient {
-    --text-content: 'Gradient';
-  }
-
-  &:before {
-    content: var(--text-content, 'boop');
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-    pointer-events: none;
-  }
-
-  &__checkbox {
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    z-index: 2;
-
-    &:checked + .input--switch__label:before {
-      transform: translateX(120px);
-      transition: transform 150ms linear;
+    &--fill {
+      --text-content: 'Click';
+      @media screen and (max-width: 35em) {
+        display: none;
+      }
     }
 
-    & + .input--switch__label {
-      position: relative;
-      padding: 0.5rem 1rem;
-      display: block;
-      user-select: none;
+    &--gradient {
+      --text-content: 'Gradient';
+    }
+
+    &:before {
+      content: var(--text-content, 'boop');
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 118px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
       pointer-events: none;
+    }
 
-      &:before {
-        content: '';
-        background: var(--clr-brown);
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        border-radius: 0.375em;
-        transform: translateX(0);
-        transition: transform 300ms;
+    &__checkbox {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 2;
+
+      &:checked + .input--switch__label:before {
+        transform: translateX(118px);
+        transition: transform 150ms linear;
       }
 
-      span {
+      & + .input--switch__label {
         position: relative;
+        padding: 0.5rem 1rem;
+        display: block;
+        user-select: none;
+        pointer-events: none;
+
+        &:before {
+          content: '';
+          background: var(--clr-brown);
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          transform: translateX(0);
+          transition: transform 300ms;
+        }
+
+        span {
+          position: relative;
+        }
       }
     }
+  }
+}
+
+.pcr-button {
+  &:hover,
+  &:focus {
+    scale: 1.2;
   }
 }

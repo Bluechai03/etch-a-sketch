@@ -1,3 +1,7 @@
+//TODO Add Random RGB fill mode
+//TODO Add Quadruple fill mode
+//TODO Add click fill mode
+
 const gridContainer = document.querySelector('.sketch-grid');
 function createGrid(gridSize = 16) {
   // Create a series of squares to form a grid
@@ -33,8 +37,8 @@ const pickr = Pickr.create({
 
     // Input / output Options
     interaction: {
-      hex: true,
       rgba: true,
+      hex: false,
       hsla: false,
       hsva: false,
       cmyk: false,
@@ -81,12 +85,12 @@ document.addEventListener('keyup', (e) => {
 });
 
 function resetGrid() {
-  // gridContainer.childNodes.forEach((child) => gridContainer.removeChild(child));
   gridContainer.textContent = '';
   fillColor = 'rgb(0, 0, 0)';
-  gridContainer.classList.toggle('animate__wobble');
+  const card = document.querySelector('.card');
+  card.classList.toggle('animate__wobble');
   // Remove class after animation to reset trigger
-  setTimeout(() => gridContainer.classList.remove('animate__wobble'), 2000);
+  setTimeout(() => card.classList.remove('animate__wobble'), 2000);
 }
 
 const btnClearGrid = document.querySelector('#btnClearGrid');
