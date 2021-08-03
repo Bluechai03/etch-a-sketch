@@ -1,3 +1,12 @@
+:root {
+  --clr-cream: #f4e0c4;
+  --clr-pink: #e96c7a;
+  --clr-green: #d4da55;
+  --clr-blue: #89c4db;
+  --clr-brown: #87796f;
+  --clr-purple: #585481;
+}
+
 *,
 *::before,
 *::after {
@@ -14,13 +23,20 @@ p {
 body {
   margin: 0;
   background: #fff;
+  background-image: url("https://www.transparenttextures.com/patterns/graphcoders-lil-fiber.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
-main {
+.card {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
   place-items: center;
   min-height: 100vh;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
 }
 
 .col {
@@ -37,15 +53,25 @@ main {
   display: grid;
   grid-template-columns: repeat(autofit, 1fr);
   width: 90%;
-  border: 2px solid chartreuse;
+  border: 10px solid var(--clr-brown);
   min-width: 300px;
+  transition: background-color 150ms ease-in-out;
 }
 
 .grid__square {
+  cursor: url(../images/cursor.png), auto;
   aspect-ratio: 1/1;
   opacity: 0;
   margin: 0;
   padding: 0;
-  transition: opacity 150ms ease-in-out, background-color 150ms ease-in-out;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.input--range {
+  width: 100%;
 }
 /*# sourceMappingURL=styles.css.map */

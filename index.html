@@ -5,32 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-a-Sketch</title>
-    <!-- iro.js - Colour picker library -->
-    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- 'monolith theme for color picker' -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/monolith.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Montserrat+Alternates&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+
     <!-- dom-to-image - Convert DOM to image -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
   </head>
   <body>
-    <main>
+    <main class="card">
       <div class="col">
-        <div class="card">
-          <h2>Instructions</h2>
-          <p>Hover over any square to fill with colour</p>
-          <p>Hold <b>'E'</b> to erase</p>
-
-          <h2>Sketch Customization</h2>
-          <label for="disable-gradient">Gradient</label>
-          <input type="checkbox" name="disable-gradient" class="checkbox" />
-          <div id="picker"></div>
-          <button class="btn" id="btnClearGrid">Clear Sketch</button>
+        <h1>Etch-a-Sketch</h1>
+        <div id="color-picker"></div>
+        <button class="btn" id="btnSave">Download Sketch</button>
+        <div class="grid animate__animated"></div>
+        <label for="grid-size" id="labelGridSize">Grid size: 16x16</label>
+        <input type="range" name="grid-size" min="1" max="100" class="input--range" id="inputGridSize" />
+        <button class="btn" id="btnSetGridSize">Set</button>
+      </div>
+      <div class="col">
+        <h2>Fill modes</h2>
+        <div class="wrapper">
+          <p>Click</p>
+          <input type="checkbox" class="input--checkbox" />
+          <p>Hover</p>
+        </div>
+        <div class="wrapper">
+          <p>Solid</p>
+          <input type="checkbox" name="disable-gradient" class="input--checkbox" id="checkboxGradient" />
+          <p>Gradient</p>
+        </div>
+        <button class="btn btn--primary">Random RGB</button>
+        <button class="btn btn--primary">Quadruple</button>
+        <div class="wrapper">
+          <!-- TODO: Add 4 colour pickers -->
         </div>
       </div>
       <div class="col">
-        <h1>Etch-a-Sketch</h1>
-        <button class="btn" id="btnSave">Save Sketch</button>
-        <div class="grid"></div>
+        <h2>Hold 'E' to erase</h2>
+        <button class="btn" id="btnClearGrid">Clear Sketch</button>
       </div>
     </main>
     <script src="script.js"></script>
