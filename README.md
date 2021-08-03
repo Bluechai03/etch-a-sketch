@@ -168,12 +168,14 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 - [The Odin Project](https://connoratherton.com/loaders)
 - [dom-to-image](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+- [FileSaver](https://github.com/cferdinandi/smooth-scroll)
 - [Pickr](https://shields.io)
 - [Font Joy](https://kenwheeler.github.io/slick)
 - [Google Fonts](https://choosealicense.com)
 - [Netlify](https://pages.github.com)
 - [Github Pages](https://daneden.github.io/animate.css)
 - [Coolors.co](https://github.com/cferdinandi/smooth-scroll)
+- [Animated CSS Buttom](https://codepen.io/nikkk-me/pen/abvPjeG)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

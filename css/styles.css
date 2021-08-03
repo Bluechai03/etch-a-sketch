@@ -1,10 +1,10 @@
 :root {
-  --clr-cream: #f4e0c4;
-  --clr-pink: #e96c7a;
-  --clr-green: #d4da55;
-  --clr-blue: #89c4db;
-  --clr-brown: #87796f;
-  --clr-purple: #585481;
+  --clr-cream: rgb(244, 224, 196);
+  --clr-pink: rgb(233, 108, 122);
+  --clr-green: rgb(212, 218, 85);
+  --clr-blue: rgb(137, 196, 219);
+  --clr-brown: rgb(135, 121, 111);
+  --clr-purple: rgb(88, 84, 129);
 }
 
 *,
@@ -20,11 +20,53 @@ p {
   margin: 0;
 }
 
+h1,
+h2 {
+  font-family: 'Comfortaa', cursive;
+  text-align: center;
+}
+
 body {
   margin: 0;
-  background: #fff;
+  background: #4e4e4e;
   background-image: url("https://www.transparenttextures.com/patterns/graphcoders-lil-fiber.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: white;
+}
+
+span {
+  color: var(--clr-cream);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.375em;
+  border: 4px solid var(--clr-accent, #000);
+  background: none;
+  color: var(--clr-accent, #000);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 150ms ease-in-out;
+}
+
+.btn:hover, .btn:focus {
+  background: var(--clr-accent);
+  color: #000;
+}
+
+.btn--primary {
+  --clr-accent: var(--clr-blue);
+}
+
+.btn--green {
+  --clr-accent: var(--clr-green);
+}
+
+.btn--pink {
+  --clr-accent: var(--clr-pink);
 }
 
 .card {
@@ -32,7 +74,11 @@ body {
   place-items: center;
   min-height: 100vh;
   max-width: 90%;
-  margin: 0 auto;
+  padding: 0 2em;
+  border: 5px solid #000;
+  border-radius: 2em;
+  margin: 2em auto;
+  background: var(--clr-purple);
 }
 
 label {
@@ -43,22 +89,28 @@ label {
   width: 100%;
   display: flex;
   flex-flow: column wrap;
+  gap: 0.5em;
+}
+
+.col--fill-modes {
+  flex-direction: column;
 }
 
 .col + .col {
   align-items: center;
 }
 
-.grid {
+.sketch-grid {
   display: grid;
   grid-template-columns: repeat(autofit, 1fr);
-  width: 90%;
+  width: 100%;
   border: 10px solid var(--clr-brown);
   min-width: 300px;
   transition: background-color 150ms ease-in-out;
+  padding: 0;
 }
 
-.grid__square {
+.sketch-grid__square {
   cursor: url(../images/cursor.png), auto;
   aspect-ratio: 1/1;
   opacity: 0;
@@ -66,12 +118,109 @@ label {
   padding: 0;
 }
 
+.sketch-grid--background {
+  background: white;
+  width: 100%;
+}
+
 .wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.wrapper__content {
+  display: flex;
+  flex-flow: column wrap;
 }
 
 .input--range {
   width: 100%;
+}
+
+#btnSave {
+  align-self: flex-end;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.input--switch {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 0.375em;
+  overflow: hidden;
+  width: 15em;
+  text-align: center;
+  color: var(--clr-cream);
+  position: relative;
+  padding-right: 120px;
+  position: relative;
+  font-weight: 600;
+}
+
+.input--switch--fill {
+  --text-content: 'Click';
+}
+
+.input--switch--gradient {
+  --text-content: 'Gradient';
+}
+
+.input--switch:before {
+  content: var(--text-content, "boop");
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.input--switch__checkbox {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 2;
+}
+
+.input--switch__checkbox:checked + .input--switch__label:before {
+  transform: translateX(120px);
+  transition: transform 150ms linear;
+}
+
+.input--switch__checkbox + .input--switch__label {
+  position: relative;
+  padding: 0.5rem 1rem;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+.input--switch__checkbox + .input--switch__label:before {
+  content: '';
+  background: var(--clr-brown);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 0.375em;
+  transform: translateX(0);
+  transition: transform 300ms;
+}
+
+.input--switch__checkbox + .input--switch__label span {
+  position: relative;
 }
 /*# sourceMappingURL=styles.css.map */

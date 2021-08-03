@@ -23,24 +23,32 @@
     <main class="card">
       <div class="col">
         <h1>Etch-a-Sketch</h1>
-        <div id="color-picker"></div>
-        <button class="btn" id="btnSave">Download Sketch</button>
-        <div class="grid animate__animated"></div>
+        <div class="wrapper">
+          <div class="wrapper__content">
+            <p class="wrapper__content__label">Change fill colour</p>
+            <div class="color-picker" id="color-picker"></div>
+          </div>
+          <div class="wrapper__content">
+            <p class="wrapper__content__label">Download sketch</p>
+            <img src="images/download.png" alt="" id="btnSave" />
+          </div>
+        </div>
+        <div class="sketch-grid--background">
+          <div class="sketch-grid animate__animated"></div>
+        </div>
         <label for="grid-size" id="labelGridSize">Grid size: 16x16</label>
         <input type="range" name="grid-size" min="1" max="100" class="input--range" id="inputGridSize" />
-        <button class="btn" id="btnSetGridSize">Set</button>
+        <button class="btn btn--green" id="btnSetGridSize">Confirm</button>
       </div>
-      <div class="col">
+      <div class="col col--fill-modes">
         <h2>Fill modes</h2>
-        <div class="wrapper">
-          <p>Click</p>
-          <input type="checkbox" class="input--checkbox" />
-          <p>Hover</p>
+        <div class="input--switch input--switch--fill">
+          <input type="checkbox" name="toggle-fill" class="input--switch__checkbox" />
+          <label class="input--switch__label" for="toggle-fill"><span class="input--switch__span">Hover</span></label>
         </div>
-        <div class="wrapper">
-          <p>Solid</p>
-          <input type="checkbox" name="disable-gradient" class="input--checkbox" id="checkboxGradient" />
-          <p>Gradient</p>
+        <div class="input--switch input--switch--gradient">
+          <input type="checkbox" name="toggle-gradient" class="input--switch__checkbox" id="checkboxGradient" />
+          <label class="input--switch__label" for="toggle-gradient"><span class="input--switch__span">Solid</span></label>
         </div>
         <button class="btn btn--primary">Random RGB</button>
         <button class="btn btn--primary">Quadruple</button>
@@ -49,8 +57,8 @@
         </div>
       </div>
       <div class="col">
-        <h2>Hold 'E' to erase</h2>
-        <button class="btn" id="btnClearGrid">Clear Sketch</button>
+        <h2>Hold '<span>E</span>' to erase</h2>
+        <button class="btn btn--pink" id="btnClearGrid">Clear Sketch</button>
       </div>
     </main>
     <script src="script.js"></script>

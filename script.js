@@ -1,9 +1,9 @@
-const gridContainer = document.querySelector('.grid');
+const gridContainer = document.querySelector('.sketch-grid');
 function createGrid(gridSize = 16) {
   // Create a series of squares to form a grid
   for (let i = 0; i < gridSize * gridSize; i += 1) {
     const grid = document.createElement('div');
-    grid.classList.add('grid__square');
+    grid.classList.add('sketch-grid__square');
     gridContainer.appendChild(grid);
   }
   // Change number of columns depending on grid size
@@ -28,6 +28,8 @@ const pickr = Pickr.create({
     preview: true,
     opacity: true,
     hue: true,
+
+    default: '#87786e',
 
     // Input / output Options
     interaction: {
@@ -56,7 +58,7 @@ pickr.on('change', (color) => {
 
 gridContainer.addEventListener('mouseover', (e) => {
   // Prevent whole grid from being coloured when grid's border is hovered over
-  if (!e.target.classList.contains('grid__square')) return;
+  if (!e.target.classList.contains('sketch-grid__square')) return;
 
   // Reset the opacity to 0.1 when a different colour is hovered over a filled square
   if (e.target.style.backgroundColor !== fillColor) e.target.style.opacity = '0.1';
@@ -100,7 +102,7 @@ btnClearGrid.addEventListener('click', () => {
 
 // Use dom-to-image and file-saver libraries to save grid state as png
 const btnSave = document.querySelector('#btnSave');
-btnSave.addEventListener('click', () => domtoimage.toBlob(document.querySelector('.grid')).then((blob) => window.saveAs(blob, 'sketch.png'))); // eslint-disable-line no-undef
+btnSave.addEventListener('click', () => domtoimage.toBlob(document.querySelector('.sketch-grid')).then((blob) => window.saveAs(blob, 'sketch.png'))); // eslint-disable-line no-undef
 
 const labelGridSize = document.querySelector('#labelGridSize');
 const inputGridSize = document.querySelector('#inputGridSize');
