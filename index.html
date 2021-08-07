@@ -22,7 +22,8 @@
   <body>
     <main class="card animate__animated">
       <!-- First Column -->
-      <div class="col">
+      <div class="col col--main">
+        <img src="images/logo.png" alt="" class="logo" />
         <h1>Etch-a-Sketch</h1>
         <label for="grid-size" id="labelGridSize">Grid size: 16x16</label>
         <input type="range" name="grid-size" min="1" max="100" class="input--range" id="inputGridSize" />
@@ -46,7 +47,7 @@
         <h2>Fill settings</h2>
         <div class="col col--switch">
           <div class="input--switch input--switch--fill">
-            <input type="checkbox" name="toggle-fill" class="input--switch__checkbox" id="checkboxFill" autocomplete="off" />
+            <input type="checkbox" name="toggle-fill" class="input--switch__checkbox" id="checkboxClick" autocomplete="off" />
             <label class="input--switch__label" for="toggle-fill"><span class="input--switch__span">Hover</span></label>
           </div>
           <div class="input--switch input--switch--gradient">
@@ -61,7 +62,7 @@
         </div>
       </div>
       <!-- Third Column -->
-      <div class="col">
+      <div class="col col--erase">
         <h2>Hold '<span>E</span>' to erase</h2>
         <button class="btn btn--pink" id="btnClearGrid">Clear Sketch</button>
       </div>

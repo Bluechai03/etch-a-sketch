@@ -1,4 +1,3 @@
-//TODO Add Random RGB fill mode
 //TODO Add Quadruple fill mode
 
 const gridContainer = document.querySelector('.sketch-grid');
@@ -16,7 +15,8 @@ createGrid();
 
 const isGradient = document.querySelector('#checkboxGradient');
 
-let fillColor = '#87786e';
+const defaultColor = 'rgb(135, 121, 111)';
+let fillColor = defaultColor;
 sessionStorage.fillColor = fillColor;
 
 // Configuring color picker
@@ -26,7 +26,7 @@ const pickr = Pickr.create({
 
   swatches: ['rgb(244,224,196)', 'rgb(233, 108, 122)', 'rgb(212, 218, 85)', 'rgb(137, 196, 219)', 'rgb(135, 121, 111)', 'rgb(88, 84, 129)'],
   comparison: false,
-  default: '#87786e',
+  default: defaultColor,
   defaultRepresentation: 'RGBA',
   closeOnScroll: true,
 
@@ -81,6 +81,7 @@ btnRandomRGB.addEventListener('click', (e) => {
 });
 
 function drawOnGrid(e) {
+  console.log(e.target.style.opacity);
   // Prevent whole grid from being coloured when grid's border is hovered over
   if (!e.target.classList.contains('sketch-grid__square')) return;
 
@@ -92,11 +93,30 @@ function drawOnGrid(e) {
   console.log(`Background colour: ${e.target.style.backgroundColor}`);
 
   // Increase opacity of any square by .1 everytime mouse hovers over it
-  if (isGradient.checked) e.target.style.opacity -= '-0.1 ';
+  if (isGradient.checked) e.target.style.opacity -= '-0.1';
   else e.target.style.opacity = '1';
 }
 
-gridContainer.addEventListener('mouseover', (e) => drawOnGrid(e));
+gridContainer.addEventListener('mouseover', drawOnGrid);
+
+// Decide fill mode
+const inputFillMode = document.querySelector('#checkboxClick');
+inputFillMode.addEventListener('click', (inputEvent) => {
+  // Add and remove certain event handlers to change drawing fill mode
+  let removedEventHandler;
+  let addedEventHandler;
+
+  if (inputEvent.target.checked) {
+    removedEventHandler = 'mouseover';
+    addedEventHandler = 'click';
+  } else {
+    removedEventHandler = 'click';
+    addedEventHandler = 'mouseover';
+  }
+
+  gridContainer.removeEventListener(removedEventHandler, drawOnGrid);
+  gridContainer.addEventListener(addedEventHandler, drawOnGrid);
+});
 
 // Erase functionality
 document.addEventListener('keydown', (e) => {
@@ -109,9 +129,9 @@ document.addEventListener('keyup', (e) => {
 
 function resetGrid() {
   gridContainer.textContent = '';
-  fillColor = 'rgb(135, 121, 111)';
+  fillColor = defaultColor;
   sessionStorage.fillColor = fillColor;
-  gridContainer.style.borderColor = 'rgb(135, 121, 111)';
+  gridContainer.style.borderColor = fillColor;
   const card = document.querySelector('.card');
   card.classList.toggle('animate__wobble');
   // Remove class after animation to reset trigger
@@ -129,7 +149,7 @@ btnClearGrid.addEventListener('click', () => {
   createGrid();
 });
 
-// Use dom-to-image and file-saver libraries to save grid state as png
+// Use dom-to-image and file-saver libraries to download grid state as png
 const btnSave = document.querySelector('#btnSave');
 btnSave.addEventListener('click', () => domtoimage.toBlob(document.querySelector('.sketch-grid')).then((blob) => window.saveAs(blob, 'sketch.png'))); // eslint-disable-line no-undef
 

@@ -13,6 +13,17 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  margin: 0;
+  min-height: 100vh;
+  background: #4e4e4e;
+  background-image: url("https://www.transparenttextures.com/patterns/graphcoders-lil-fiber.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  font-family: 'Montserrat Alternates', sans-serif;
+  color: white;
+}
+
 h1,
 h2,
 h3,
@@ -26,13 +37,9 @@ h2 {
   text-align: center;
 }
 
-body {
-  margin: 0;
-  background: #4e4e4e;
-  background-image: url("https://www.transparenttextures.com/patterns/graphcoders-lil-fiber.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-  font-family: 'Montserrat Alternates', sans-serif;
-  color: white;
+.logo {
+  width: 4rem;
+  margin: auto;
 }
 
 span {
@@ -93,13 +100,19 @@ label {
   display: grid;
   gap: 1em;
   place-items: center;
-  min-height: 100vh;
-  max-width: 90%;
+  max-width: 1024px;
   padding: 1em;
   border: 5px solid #000;
   border-radius: 2em;
-  margin: 1em auto;
+  margin: auto;
   background: var(--clr-purple);
+}
+
+@media screen and (min-width: 52em) {
+  .card {
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-areas: 'left-side main right-side';
+  }
 }
 
 label {
@@ -117,9 +130,27 @@ label {
   flex-direction: column;
 }
 
-.col--switch {
+@media screen and (min-width: 52em) {
+  .col--fill-modes {
+    grid-area: left-side;
+  }
+}
+
+.col--fill-modes .col--switch {
   flex-flow: row wrap;
   justify-content: center;
+}
+
+@media screen and (min-width: 52em) {
+  .col--main {
+    grid-area: main;
+  }
+}
+
+@media screen and (min-width: 52em) {
+  .col--erase {
+    grid-area: right-side;
+  }
 }
 
 .col + .col {
