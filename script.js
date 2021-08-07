@@ -1,6 +1,5 @@
 //TODO Add Random RGB fill mode
 //TODO Add Quadruple fill mode
-//TODO Add click fill mode
 
 const gridContainer = document.querySelector('.sketch-grid');
 function createGrid(gridSize = 16) {
@@ -17,7 +16,7 @@ createGrid();
 
 const isGradient = document.querySelector('#checkboxGradient');
 
-let fillColor = 'rgb(0, 0, 0)';
+let fillColor = '#87786e';
 sessionStorage.fillColor = fillColor;
 
 // Configuring color picker
@@ -26,6 +25,10 @@ const pickr = Pickr.create({
   theme: 'monolith', // or 'monolith', or 'nano'
 
   swatches: ['rgb(244,224,196)', 'rgb(233, 108, 122)', 'rgb(212, 218, 85)', 'rgb(137, 196, 219)', 'rgb(135, 121, 111)', 'rgb(88, 84, 129)'],
+  comparison: false,
+  default: '#87786e',
+  defaultRepresentation: 'RGBA',
+  closeOnScroll: true,
 
   components: {
     // Main components
@@ -33,24 +36,22 @@ const pickr = Pickr.create({
     opacity: true,
     hue: true,
 
-    default: '#87786e',
-
     // Input / output Options
     interaction: {
       rgba: true,
-      hex: false,
-      hsla: false,
+      hex: true,
+      hsla: true,
       hsva: false,
       cmyk: false,
       input: true,
       clear: false,
-      save: false,
+      save: true,
     },
   },
 });
 
 pickr.on('change', (color) => {
-  // Take and convert each rgba value from color picker, except for alpha value, into a number to compare in later functions
+  // Convert each rgba value from color picker, except for alpha value, into a number to compare in later functions
   const rgb = [Math.round(Number(color.toRGBA()[0])), Math.round(Number(color.toRGBA()[1])), Math.round(Number(color.toRGBA()[2]))];
   console.log(Math.round(rgb[0]));
 
@@ -60,10 +61,30 @@ pickr.on('change', (color) => {
   gridContainer.style.borderColor = fillColor;
 });
 
-gridContainer.addEventListener('mouseover', (e) => {
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function getRandomRGB() {
+  // Call function to create random values and create random rgb value
+  const red = getRandomNumber(0, 255);
+  const green = getRandomNumber(0, 255);
+  const blue = getRandomNumber(0, 255);
+
+  fillColor = `rgb(${red},${green},${blue})`;
+  console.log(fillColor);
+}
+
+const btnRandomRGB = document.querySelector('#btnRandomRGB');
+btnRandomRGB.addEventListener('click', (e) => {
+  e.target.classList.toggle('btn--active');
+});
+
+function drawOnGrid(e) {
   // Prevent whole grid from being coloured when grid's border is hovered over
   if (!e.target.classList.contains('sketch-grid__square')) return;
 
+  if (btnRandomRGB.classList.contains('btn--active')) getRandomRGB();
   // Reset the opacity to 0.1 when a different colour is hovered over a filled square
   if (e.target.style.backgroundColor !== fillColor) e.target.style.opacity = '0.1';
   console.log(`Fill colour: ${fillColor}`);
@@ -73,7 +94,9 @@ gridContainer.addEventListener('mouseover', (e) => {
   // Increase opacity of any square by .1 everytime mouse hovers over it
   if (isGradient.checked) e.target.style.opacity -= '-0.1 ';
   else e.target.style.opacity = '1';
-});
+}
+
+gridContainer.addEventListener('mouseover', (e) => drawOnGrid(e));
 
 // Erase functionality
 document.addEventListener('keydown', (e) => {
@@ -86,7 +109,9 @@ document.addEventListener('keyup', (e) => {
 
 function resetGrid() {
   gridContainer.textContent = '';
-  fillColor = 'rgb(0, 0, 0)';
+  fillColor = 'rgb(135, 121, 111)';
+  sessionStorage.fillColor = fillColor;
+  gridContainer.style.borderColor = 'rgb(135, 121, 111)';
   const card = document.querySelector('.card');
   card.classList.toggle('animate__wobble');
   // Remove class after animation to reset trigger

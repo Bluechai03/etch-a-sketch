@@ -58,7 +58,8 @@ label {
   @extend %btn;
   color: var(--clr-accent, #000);
   &:hover,
-  &:focus {
+  // &:focus,
+  &--active {
     background: var(--clr-accent);
     color: var(--clr-text, #fff);
   }
@@ -160,6 +161,7 @@ label {
 }
 
 .input {
+  // Slider
   &--range {
     all: unset;
     margin-top: 0.5em;
@@ -168,7 +170,7 @@ label {
     &::-webkit-slider-thumb,
     &::-moz-range-thumb {
       border: 2px solid #000000;
-      height: 36px;
+      height: 28px;
       width: 16px;
       border-radius: 0.25em;
       background: var(--clr-cream);
@@ -199,7 +201,7 @@ label {
 
     &--fill {
       --text-content: 'Click';
-      @media screen and (max-width: 35em) {
+      @media screen and (max-width: 37em) {
         display: none;
       }
     }

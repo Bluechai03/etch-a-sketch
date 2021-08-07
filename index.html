@@ -31,7 +31,7 @@
           <div class="sketch-grid"></div>
         </div>
         <div class="wrapper">
-          <div class="wrapper__content wrapper__content--hidden">
+          <div class="wrapper__content">
             <div class="wrapper__content__icon color-picker" id="color-picker"></div>
             <p class="wrapper__content__label" id="labelColorPicker">Change fill colour</p>
           </div>
@@ -43,19 +43,19 @@
       </div>
       <!-- Second Column -->
       <div class="col col--fill-modes">
-        <h2>Fill modes</h2>
+        <h2>Fill settings</h2>
         <div class="col col--switch">
           <div class="input--switch input--switch--fill">
-            <input type="checkbox" name="toggle-fill" class="input--switch__checkbox" />
+            <input type="checkbox" name="toggle-fill" class="input--switch__checkbox" id="checkboxFill" autocomplete="off" />
             <label class="input--switch__label" for="toggle-fill"><span class="input--switch__span">Hover</span></label>
           </div>
           <div class="input--switch input--switch--gradient">
-            <input type="checkbox" name="toggle-gradient" class="input--switch__checkbox" id="checkboxGradient" />
+            <input type="checkbox" name="toggle-gradient" class="input--switch__checkbox" id="checkboxGradient" autocomplete="off" />
             <label class="input--switch__label" for="toggle-gradient"><span class="input--switch__span">Solid</span></label>
           </div>
         </div>
-        <button class="btn btn--green">Random RGB</button>
-        <button class="btn btn--green">Quadruple</button>
+        <button class="btn btn--green" id="btnRandomRGB">Random RGB</button>
+        <button class="btn btn--green" id="btnQuadruple">Quadruple</button>
         <div class="wrapper">
           <!-- TODO: Add 4 colour pickers -->
         </div>
