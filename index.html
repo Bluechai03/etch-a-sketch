@@ -22,51 +22,51 @@
   <body>
     <main class="card animate__animated">
       <!-- First Column -->
-      <div class="col col--main">
+      <div class="col col--first">
         <img src="images/logo.png" alt="" class="logo" />
-        <h1>Etch-a-Sketch</h1>
-        <label for="grid-size" id="labelGridSize">Grid size: 16x16</label>
-        <input type="range" name="grid-size" min="1" max="100" class="input--range" id="inputGridSize" />
-        <button class="btn btn--primary" id="btnSetGridSize">Change grid size</button>
-        <div class="sketch-grid--background">
-          <div class="sketch-grid"></div>
-        </div>
-        <div class="wrapper">
-          <div class="wrapper__content">
-            <div class="wrapper__content__icon color-picker" id="color-picker"></div>
-            <p class="wrapper__content__label" id="labelColorPicker">Change fill colour</p>
+        <h1 class="title">Etch-a-Sketch</h1>
+        <div class="col col--fill-modes">
+          <h2 class="title--h2">Fill modes</h2>
+          <div class="col col--switch">
+            <div class="input--switch input--switch--fill">
+              <input type="checkbox" name="toggle-fill" class="input--switch__checkbox" id="checkboxClick" autocomplete="off" />
+              <label class="input--switch__label" for="toggle-fill"><span class="input--switch__span">Hover</span></label>
+            </div>
+            <div class="input--switch input--switch--gradient">
+              <input type="checkbox" name="toggle-gradient" class="input--switch__checkbox" id="checkboxGradient" autocomplete="off" />
+              <label class="input--switch__label" for="toggle-gradient"><span class="input--switch__span">Solid</span></label>
+            </div>
           </div>
-          <div class="wrapper__content">
-            <img class="wrapper__content__icon" src="images/download.png" alt="" id="btnSave" />
-            <p class="wrapper__content__label" id="labelDownload">Download sketch</p>
-          </div>
+          <button class="btn btn--green" id="btnRandomRGB">Random RGB</button>
         </div>
       </div>
       <!-- Second Column -->
-      <div class="col col--fill-modes">
-        <h2>Fill settings</h2>
-        <div class="col col--switch">
-          <div class="input--switch input--switch--fill">
-            <input type="checkbox" name="toggle-fill" class="input--switch__checkbox" id="checkboxClick" autocomplete="off" />
-            <label class="input--switch__label" for="toggle-fill"><span class="input--switch__span">Hover</span></label>
-          </div>
-          <div class="input--switch input--switch--gradient">
-            <input type="checkbox" name="toggle-gradient" class="input--switch__checkbox" id="checkboxGradient" autocomplete="off" />
-            <label class="input--switch__label" for="toggle-gradient"><span class="input--switch__span">Solid</span></label>
-          </div>
-        </div>
-        <button class="btn btn--green" id="btnRandomRGB">Random RGB</button>
-        <button class="btn btn--green" id="btnQuadruple">Quadruple</button>
+      <div class="col col--second">
         <div class="wrapper">
-          <!-- TODO: Add 4 colour pickers -->
+          <div class="wrapper__content">
+            <p class="wrapper__content__label label" id="labelColorPicker">Change fill colour</p>
+            <div class="wrapper__content__icon color-picker" id="color-picker"></div>
+          </div>
+          <div class="wrapper__content">
+            <p class="wrapper__content__label label" id="labelDownload">Download sketch</p>
+            <img class="wrapper__content__icon" src="images/download.png" alt="" id="btnSave" />
+          </div>
         </div>
+        <div class="sketch-grid--background">
+          <div class="sketch-grid"></div>
+        </div>
+        <label class="label" for="grid-size" id="labelGridSize">Grid size: 16x16</label>
+        <input type="range" name="grid-size" min="1" max="100" class="input--range" id="inputGridSize" />
+        <button class="btn btn--primary" id="btnSetGridSize">Change grid size</button>
       </div>
+
       <!-- Third Column -->
-      <div class="col col--erase">
-        <h2>Hold '<span>E</span>' to erase</h2>
+      <div class="col col--third">
+        <h2 class="title--h2">Hold '<span>E</span>' to erase</h2>
         <button class="btn btn--pink" id="btnClearGrid">Clear Sketch</button>
       </div>
     </main>
+    <footer>Developed by <a href="">Anna Montero</a></footer>
     <script src="script.js"></script>
   </body>
 </html>
