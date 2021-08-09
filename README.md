@@ -49,7 +49,6 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
@@ -59,7 +58,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]]();
 
 There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
@@ -75,18 +74,8 @@ A list of commonly used resources that I find helpful are listed in the acknowle
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-- [JavaScript]()
-- [Bootstrap](https://getbootstrap.com)
-- [JQuery](https://jquery.com)
-- [Laravel](https://laravel.com)
-
-<!-- LICENSE -->
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
+- [SCSS](https://sass-lang.com/)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 <!-- CONTACT -->
 
@@ -107,7 +96,6 @@ Project Link: [https://github.com/Bluechai03/etch-a-sketch](https://github.com/B
 - [Pickr](https://shields.io)
 - [Font Joy](https://kenwheeler.github.io/slick)
 - [Google Fonts](https://choosealicense.com)
-- [Netlify](https://pages.github.com)
-- [Github Pages](https://daneden.github.io/animate.css)
+- [Animate.css](https://daneden.github.io/animate.css)
 - [Coolors.co](https://github.com/cferdinandi/smooth-scroll)
 - [Animated CSS Buttom](https://codepen.io/nikkk-me/pen/abvPjeG)

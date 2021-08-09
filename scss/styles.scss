@@ -14,7 +14,8 @@
 }
 
 body {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   place-items: center;
   margin: 0;
   padding: 0;
@@ -42,12 +43,11 @@ p {
 
 h1,
 h2 {
-  font-family: 'Comfortaa', cursive;
   text-align: center;
 }
 
 .title {
-  font-size: 1.75rem;
+  font-size: 1.65rem;
   &--h2 {
     font-size: clamp(1rem, 1vw, 1.5rem);
   }
@@ -68,6 +68,7 @@ label {
 }
 
 %btn {
+  font-family: 'Comfortaa', cursive;
   display: inline-block;
   padding: 0.5em 1em;
   border-radius: 0.375em;
