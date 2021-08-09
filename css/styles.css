@@ -103,18 +103,19 @@ label {
   --clr-accent: var(--clr-pink);
 }
 
-#btnSave,
-#btnSetGridSize {
+#buttonSave,
+#buttonSetGridSize {
   display: block;
   align-self: flex-end;
   justify-self: flex-end;
+  cursor: pointer;
 }
 
-#btnSave {
+#buttonSave {
   transition: transform 150ms ease-in-out;
 }
 
-#btnSave:hover {
+#buttonSave:hover {
   transform: translateY(5px);
 }
 

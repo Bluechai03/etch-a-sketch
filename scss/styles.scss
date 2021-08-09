@@ -100,14 +100,15 @@ label {
   }
 }
 
-#btnSave,
-#btnSetGridSize {
+#buttonSave,
+#buttonSetGridSize {
   display: block;
   align-self: flex-end;
   justify-self: flex-end;
+  cursor: pointer;
 }
 
-#btnSave {
+#buttonSave {
   transition: transform 150ms ease-in-out;
   &:hover {
     transform: translateY(5px);

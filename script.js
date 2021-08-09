@@ -79,8 +79,8 @@ function getRandomRGB() {
   console.log(fillColor);
 }
 
-const btnRandomRGB = document.querySelector('#btnRandomRGB');
-btnRandomRGB.addEventListener('click', (e) => {
+const buttonRandomRGB = document.querySelector('#buttonRandomRGB');
+buttonRandomRGB.addEventListener('click', (e) => {
   e.target.classList.toggle('btn--active');
 });
 
@@ -99,7 +99,7 @@ function drawOnGrid(e) {
   if (isGradient.checked) e.target.style.opacity -= '-0.1';
   else e.target.style.opacity = '1';
 
-  if (btnRandomRGB.classList.contains('btn--active')) getRandomRGB();
+  if (buttonRandomRGB.classList.contains('btn--active')) getRandomRGB();
 }
 
 gridContainer.addEventListener('mouseover', drawOnGrid);
@@ -154,8 +154,8 @@ function resetGrid() {
   setTimeout(() => card.classList.remove('animate__wobble'), 2000);
 }
 
-const btnClearGrid = document.querySelector('#btnClearGrid');
-btnClearGrid.addEventListener('click', () => {
+const buttonClearGrid = document.querySelector('#buttonClearGrid');
+buttonClearGrid.addEventListener('click', () => {
   gridContainer.childNodes.forEach((child) => {
     child.style.backgroundColor = '#fff';
     child.style.opacity = 0;
@@ -168,11 +168,11 @@ btnClearGrid.addEventListener('click', () => {
 });
 
 // Use dom-to-image and file-saver libraries to download grid state as png
-const btnSave = document.querySelector('#btnSave');
-btnSave.addEventListener('click', () => domtoimage.toBlob(document.querySelector('.sketch-grid')).then((blob) => window.saveAs(blob, 'sketch.png'))); // eslint-disable-line no-undef
+const buttonSave = document.querySelector('#buttonSave');
+buttonSave.addEventListener('click', () => domtoimage.toBlob(document.querySelector('.sketch-grid')).then((blob) => window.saveAs(blob, 'sketch.png'))); // eslint-disable-line no-undef
 
-const btnSetGridSize = document.querySelector('#btnSetGridSize');
-btnSetGridSize.addEventListener('click', () => {
+const buttonSetGridSize = document.querySelector('#buttonSetGridSize');
+buttonSetGridSize.addEventListener('click', () => {
   resetGrid();
   createGrid(gridSize);
   console.log('Grid size changed!');
