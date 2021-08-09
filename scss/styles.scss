@@ -39,6 +39,7 @@ h2,
 h3,
 p {
   margin: 0;
+  font-family: 'Comfortaa', cursive;
 }
 
 h1,
@@ -211,7 +212,8 @@ label {
     display: flex;
     flex-flow: column wrap;
     &__label {
-      margin-top: 0.5rem;
+      margin-bottom: 0.125rem;
+      font-weight: 700;
     }
   }
   &--color-picker {
@@ -354,4 +356,8 @@ input[type='range']::-webkit-slider-runnable-track {
   &:focus {
     scale: 1.2;
   }
+}
+
+#valueColorPicker {
+  color: var(--clr-cream);
 }

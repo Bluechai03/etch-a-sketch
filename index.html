@@ -19,7 +19,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
   </head>
-  <body class="animate__animated">
+  <body>
     <main class="card animate__animated">
       <!-- First Column -->
       <div class="col col--first">
@@ -44,12 +44,14 @@
       <div class="col col--second">
         <div class="wrapper">
           <div class="wrapper__content">
+            <p class="wrapper__content__label label" id="labelColorPicker">Change fill colour</p>
             <div class="wrapper wrapper--color-picker">
               <div class="wrapper__content__icon color-picker" id="color-picker"></div>
               <p id="valueColorPicker">boop</p>
             </div>
           </div>
           <div class="wrapper__content">
+            <p class="wrapper__content__label label" id="labelDownload">Download sketch</p>
             <img class="wrapper__content__icon" src="images/download.png" alt="" id="btnSave" />
           </div>
         </div>

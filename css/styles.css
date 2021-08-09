@@ -40,6 +40,7 @@ h2,
 h3,
 p {
   margin: 0;
+  font-family: 'Comfortaa', cursive;
 }
 
 h1,
@@ -225,7 +226,8 @@ label {
 }
 
 .wrapper__content__label {
-  margin-top: 0.5rem;
+  margin-bottom: 0.125rem;
+  font-weight: 700;
 }
 
 .wrapper--color-picker {
@@ -366,5 +368,9 @@ input[type='range']::-webkit-slider-runnable-track {
 
 .pcr-button:hover, .pcr-button:focus {
   scale: 1.2;
+}
+
+#valueColorPicker {
+  color: var(--clr-cream);
 }
 /*# sourceMappingURL=styles.css.map */
