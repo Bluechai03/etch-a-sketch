@@ -214,6 +214,11 @@ label {
       margin-top: 0.5rem;
     }
   }
+  &--color-picker {
+    justify-content: flex-start;
+    gap: 0.5em;
+    align-items: center;
+  }
 }
 
 input[type='range']::-webkit-slider-thumb {

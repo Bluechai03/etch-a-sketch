@@ -17,6 +17,9 @@ const defaultColor = 'rgb(135, 121, 111)';
 let fillColor = defaultColor;
 sessionStorage.fillColor = fillColor;
 
+const valueColorPicker = document.querySelector('#valueColorPicker');
+valueColorPicker.textContent = fillColor;
+
 // Configuring color picker
 const pickr = Pickr.create({
   el: '#color-picker',
@@ -27,6 +30,7 @@ const pickr = Pickr.create({
   default: defaultColor,
   defaultRepresentation: 'RGBA',
   closeOnScroll: true,
+  position: 'left-end',
 
   components: {
     // Main components
@@ -43,7 +47,7 @@ const pickr = Pickr.create({
       cmyk: false,
       input: true,
       clear: false,
-      save: true,
+      save: false,
     },
   },
 });
@@ -57,6 +61,8 @@ pickr.on('change', (color) => {
   // Store current rgb values to be used after erase mode
   sessionStorage.fillColor = fillColor;
   gridContainer.style.borderColor = fillColor;
+  valueColorPicker.textContent = fillColor;
+  pickr.setColor(fillColor);
 });
 
 function getRandomNumber(min, max) {
@@ -139,6 +145,7 @@ inputGridSize.addEventListener('input', (e) => {
 function resetGrid() {
   gridContainer.textContent = '';
   fillColor = defaultColor;
+  pickr.setColor(fillColor);
   sessionStorage.fillColor = fillColor;
   gridContainer.style.borderColor = fillColor;
   const card = document.querySelector('.card');
