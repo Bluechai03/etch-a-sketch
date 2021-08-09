@@ -85,7 +85,6 @@ function drawOnGrid(e) {
   // Prevent whole grid from being coloured when grid's border is hovered over
   if (!e.target.classList.contains('sketch-grid__square')) return;
 
-  if (btnRandomRGB.classList.contains('btn--active')) getRandomRGB();
   // Reset the opacity to 0.1 when a different colour is hovered over a filled square
   if (e.target.style.backgroundColor !== fillColor) e.target.style.opacity = '0.1';
   console.log(`Fill colour: ${fillColor}`);
@@ -95,6 +94,8 @@ function drawOnGrid(e) {
   // Increase opacity of any square by .1 everytime mouse hovers over it
   if (isGradient.checked) e.target.style.opacity -= '-0.1';
   else e.target.style.opacity = '1';
+
+  if (btnRandomRGB.classList.contains('btn--active')) getRandomRGB();
 }
 
 gridContainer.addEventListener('mouseover', drawOnGrid);
@@ -118,13 +119,23 @@ inputFillMode.addEventListener('click', (inputEvent) => {
   gridContainer.addEventListener(addedEventHandler, drawOnGrid);
 });
 
-// Erase functionality
+// Erase feature
 document.addEventListener('keydown', (e) => {
   if (e.code === 'KeyE') fillColor = 'rgba(255,255,255, 0)';
+  console.log(fillColor);
 });
 
 document.addEventListener('keyup', (e) => {
   if (e.code === 'KeyE') fillColor = sessionStorage.fillColor;
+});
+
+let gridSize;
+const labelGridSize = document.querySelector('#labelGridSize');
+const inputGridSize = document.querySelector('#inputGridSize');
+
+inputGridSize.addEventListener('input', (e) => {
+  gridSize = e.target.value;
+  labelGridSize.textContent = `Grid size: ${gridSize}x${gridSize}`;
 });
 
 function resetGrid() {
@@ -144,7 +155,9 @@ btnClearGrid.addEventListener('click', () => {
     child.style.backgroundColor = '#fff';
     child.style.opacity = 0;
   });
-
+  gridSize = 16;
+  inputGridSize.value = gridSize;
+  labelGridSize.textContent = `Grid size: ${gridSize}x${gridSize}`;
   resetGrid();
   createGrid();
 });
@@ -152,15 +165,6 @@ btnClearGrid.addEventListener('click', () => {
 // Use dom-to-image and file-saver libraries to download grid state as png
 const btnSave = document.querySelector('#btnSave');
 btnSave.addEventListener('click', () => domtoimage.toBlob(document.querySelector('.sketch-grid')).then((blob) => window.saveAs(blob, 'sketch.png'))); // eslint-disable-line no-undef
-
-const labelGridSize = document.querySelector('#labelGridSize');
-const inputGridSize = document.querySelector('#inputGridSize');
-
-let gridSize;
-inputGridSize.addEventListener('input', (e) => {
-  gridSize = e.target.value;
-  labelGridSize.textContent = `Grid size: ${gridSize}x${gridSize}`;
-});
 
 const btnSetGridSize = document.querySelector('#btnSetGridSize');
 btnSetGridSize.addEventListener('click', () => {

@@ -26,6 +26,14 @@ body {
   color: white;
 }
 
+a {
+  color: var(--clr-purple);
+}
+
+a:hover {
+  color: var(--clr-green);
+}
+
 h1,
 h2,
 h3,
@@ -246,14 +254,14 @@ label {
   border: 0.25em solid var(--clr-brown);
   border-radius: 0.375em;
   overflow: hidden;
-  width: 12em;
+  width: 12.5em;
   text-align: center;
   color: var(--clr-cream);
   position: relative;
   padding-right: 6em;
   position: relative;
   font-weight: 600;
-  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-size: clamp(1rem, 1vw, 1.125rem);
 }
 
 .input--switch--fill {
