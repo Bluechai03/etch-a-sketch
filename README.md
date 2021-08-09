@@ -60,17 +60,9 @@
 
 [![Product Name Screen Shot][product-screenshot]]();
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+Hi there! Here's my web page of an Etch-a-Sketch pad developed using HTML, SCSS and JavaScript. This project was created for The Odin Project's Foundation Course and for me to get more familiar with DOM Manipulation.
 
-Here's why:
-
-- Your time should be focused on creating something amazing. A project that solves a problem and helps others
-- You shouldn't be doing the same tasks over and over like creating a README from scratch
-- You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+The page was made using HTML. I used SCSS as the preprocessor for CSS, implemented Grid and Flexbox to create the layout. All logic was made using Vanilla JavaScript, no frameworks. I used a few libraries to add more functionality to the Etch-a-sketch pad such as using pickr for the color picker, dom-to-image to convert the sketch to a png file and FileSaver.js to be able to download the image. I also used Animate.css to add a short animation when clearing the sketch grid.
 
 ### Built With
 
@@ -90,12 +82,12 @@ Project Link: [https://github.com/Bluechai03/etch-a-sketch](https://github.com/B
 ## Acknowledgements
 
 - [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
-- [The Odin Project](https://connoratherton.com/loaders)
-- [dom-to-image](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-- [FileSaver](https://github.com/cferdinandi/smooth-scroll)
-- [Pickr](https://shields.io)
-- [Font Joy](https://kenwheeler.github.io/slick)
-- [Google Fonts](https://choosealicense.com)
+- [The Odin Project](https://www.theodinproject.com/dashboard)
+- [dom-to-image](https://github.com/tsayen/dom-to-image)
+- [FileSaver.js](https://github.com/eligrey/FileSaver.js/)
+- [Pickr](https://github.com/Simonwep/pickr)
+- [Font Joy](https://fontjoy.com/)
+- [Google Fonts](https://fonts.google.com/)
 - [Animate.css](https://daneden.github.io/animate.css)
-- [Coolors.co](https://github.com/cferdinandi/smooth-scroll)
+- [Coolors.co](https://coolors.co/)
 - [Animated CSS Buttom](https://codepen.io/nikkk-me/pen/abvPjeG)
