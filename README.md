@@ -64,12 +64,12 @@ Hi there! Here's my web page of an Etch-a-Sketch pad developed using HTML, SCSS 
 
 The page was made using HTML. I used SCSS as the preprocessor for CSS, implemented Grid and Flexbox to create the layout. All logic was made using Vanilla JavaScript, no frameworks. I used a few libraries to add more functionality to the Etch-a-sketch pad such as using pickr for the color picker, dom-to-image to convert the sketch to a png file and FileSaver.js to be able to download the image. I also used Animate.css to add a short animation when clearing the sketch grid.
 
-## Features
+### Features
 
 - Hover or click to draw on sketch grid
 - Draw with solid or gradient colors
 - Change fill color with color picker
-- Use 'Random RGB' button to generate random colours for fill color
+- Use 'Random RGB' button to generate random colours
 - Change sketch grid size
 - Clear sketch grid
 
