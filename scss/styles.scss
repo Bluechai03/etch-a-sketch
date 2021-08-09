@@ -354,7 +354,7 @@ input[type='range']::-webkit-slider-runnable-track {
 .pcr-button {
   &:hover,
   &:focus {
-    scale: 1.2;
+    opacity: 0.7;
   }
 }
 
