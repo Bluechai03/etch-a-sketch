@@ -74,7 +74,7 @@ label {
   padding: 0.5em 1em;
   border-radius: 0.375em;
   border: 0.25em solid var(--clr-accent, #000);
-  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-size: clamp(1rem, 1vw, 1.125rem);
   font-weight: 600;
   background: none;
   transition: background-color 150ms ease-in-out;
@@ -186,7 +186,6 @@ label {
 .sketch-grid {
   display: grid;
   grid-template-columns: repeat(autofit, 1fr);
-  width: 100%;
   border: 10px solid var(--clr-brown);
   min-width: 300px;
   transition: background-color 150ms ease-in-out;
@@ -207,6 +206,13 @@ label {
   margin: 0 0 0.5rem;
 }
 
+.grid-size {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
 .wrapper {
   width: 100%;
   display: flex;
@@ -222,6 +228,25 @@ label {
   margin-top: 0.5rem;
 }
 
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 2px solid #000000;
+  height: 28px;
+  width: 16px;
+  transform: translateY(-0.5em);
+  border-radius: 0.25em;
+  background: var(--clr-cream);
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.75rem;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0.25rem;
+}
+
 .label {
   font-size: clamp(1rem, 1vw, 1.125rem);
 }
@@ -232,7 +257,7 @@ label {
   width: 100%;
 }
 
-.input--range::-webkit-slider-thumb, .input--range::-moz-range-thumb {
+.input--range::-moz-range-thumb {
   border: 2px solid #000000;
   height: 28px;
   width: 16px;
@@ -241,7 +266,7 @@ label {
   cursor: pointer;
 }
 
-.input--range::-webkit-slider-runnable-track, .input--range::-moz-range-track {
+.input--range::-moz-range-track {
   width: 100%;
   height: 0.75rem;
   cursor: pointer;

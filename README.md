@@ -33,7 +33,7 @@
       Demo
     </a>
     <span> | </span>
-    <a href="https://github.com/Bluechai03/etch-a-sketch">
+    <a target="_blank" href="https://github.com/Bluechai03/etch-a-sketch">
       Solution
     </a>
   </h3>

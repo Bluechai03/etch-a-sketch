@@ -55,14 +55,17 @@
         <div class="sketch-grid--background">
           <div class="sketch-grid"></div>
         </div>
-        <label class="label" for="grid-size" id="labelGridSize">Grid size: 16x16</label>
-        <input type="range" name="grid-size" min="1" max="100" class="input--range" id="inputGridSize" />
-        <button class="btn btn--primary" id="btnSetGridSize">Change grid size</button>
+        <div class="grid-size">
+          <label class="label" for="grid-size" id="labelGridSize">Grid size: 16x16</label>
+          <input type="range" name="grid-size" min="1" max="100" class="input--range" id="inputGridSize" />
+          <button class="btn btn--primary" id="btnSetGridSize">Change grid size</button>
+        </div>
       </div>
 
       <!-- Third Column -->
       <div class="col col--third">
         <h2 class="title--h2">Hold '<span>E</span>' to erase</h2>
+        <p>OR</p>
         <button class="btn btn--pink" id="btnClearGrid">Clear Sketch</button>
       </div>
     </main>
