@@ -1,5 +1,3 @@
-//TODO Add Quadruple fill mode
-
 const gridContainer = document.querySelector('.sketch-grid');
 function createGrid(gridSize = 16) {
   // Create a series of squares to form a grid

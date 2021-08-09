@@ -121,8 +121,8 @@ label {
   display: grid;
   gap: 1em;
   place-items: center;
-  width: 80%;
-  max-width: 890px;
+  width: 90%;
+  max-width: 875px;
   padding: 1em;
   border: 5px solid #000;
   border-radius: 2em;
