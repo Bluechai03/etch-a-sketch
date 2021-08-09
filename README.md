@@ -24,8 +24,7 @@
   <h3 align="center">Etch-a-Sketch</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
-  </p>
+  A web version of an Etch-a-Sketch pad! Made for The Odin Project  </p>
 
 <div align="center">
   <h3>
