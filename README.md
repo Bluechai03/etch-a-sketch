@@ -58,7 +58,8 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]]();
+![Etch-a-Sketch Screenshot](https://i.imgur.com/8F1XX54.png)  
+![Etch-a-Sketch Drawings Screenshot](https://i.imgur.com/vpauQDd.png)
 
 Hi there! Here's my web page of an Etch-a-Sketch pad developed using HTML, SCSS and JavaScript. This project was created for The Odin Project's Foundation Course and for me to get more familiar with DOM Manipulation.
 
