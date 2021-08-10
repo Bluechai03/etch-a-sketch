@@ -148,10 +148,13 @@ function resetGrid() {
   pickr.setColor(fillColor);
   sessionStorage.fillColor = fillColor;
   gridContainer.style.borderColor = fillColor;
+
+  const animation = 'animate__shakeY';
+
   const card = document.querySelector('.card');
-  card.classList.toggle('animate__wobble');
+  card.classList.toggle(animation);
   // Remove class after animation to reset trigger
-  setTimeout(() => card.classList.remove('animate__wobble'), 2000);
+  setTimeout(() => card.classList.remove(animation), 2000);
 }
 
 const buttonClearGrid = document.querySelector('#buttonClearGrid');
