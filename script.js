@@ -75,7 +75,7 @@ function getRandomRGB() {
   const green = getRandomNumber(0, 255);
   const blue = getRandomNumber(0, 255);
 
-  fillColor = `rgb(${red},${green},${blue})`;
+  fillColor = `rgb(${red}, ${green}, ${blue})`;
   console.log(fillColor);
 }
 
